@@ -20,12 +20,12 @@ https://youtu.be/4WYr3IZz1d8
 Live Deployment
     https://huggingface.co/spaces/devil610/KrackHack
 
-🧠 Project Architecture
+🧠 Project Architecture<br>
 
-Off-road environments are chaotic. A single model often fails to distinguish between safe terrain (e.g., dry grass) and obstacles (e.g., logs). Our solution uses a Multi-Phase Ensemble Strategy:
-The Ensemble Engine
+Off-road environments are chaotic. A single model often fails to distinguish between safe terrain (e.g., dry grass) and obstacles (e.g., logs). Our solution uses a Multi-Phase Ensemble Strategy:<br>
+The Ensemble Engine<br>
 
-We employ a Weighted Soft-Voting Mechanism that combines predictions from 7 distinct architectures:
+We employ a Weighted Soft-Voting Mechanism that combines predictions from 7 distinct architectures:<br>
 
     Phase 1: DeepLabV3+ (ResNet101 Backbone) - Baseline Stability
 
@@ -39,7 +39,7 @@ We employ a Weighted Soft-Voting Mechanism that combines predictions from 7 dist
 
     Phase 6: Feature Pyramid Networks (FPN) - Multi-scale Object Detection
 
-Key Features
+Key Features<br>
 
     Test-Time Augmentation (TTA): The model performs horizontal flips during inference to ensure robustness.
 
@@ -49,8 +49,8 @@ Key Features
 
     Dockerized Deployment: Fully containerized for deployment on Hugging Face Spaces or any cloud provider.
 
-🛠️ Installation & Setup
-Prerequisites
+🛠️ Installation & Setup<br>
+Prerequisites<br>
 
     Git & Git LFS (Large File Storage is critical for downloading model weights).
 
@@ -58,9 +58,9 @@ Prerequisites
 
     Python 3.9+ (If running locally).
 
-Option A: Running with Docker (Recommended)
+Option A: Running with Docker (Recommended)<br>
 
-This is the fastest way to get started without worrying about dependencies.
+This is the fastest way to get started without worrying about dependencies.<br>
 
     Clone the Repository:
     Bash
@@ -81,7 +81,7 @@ This is the fastest way to get started without worrying about dependencies.
     Access the App:
     Open your browser and go to http://localhost:7860
 
-Option B: Local Python Setup
+Option B: Local Python Setup<br>
 
     Install Git LFS:
     Bash
@@ -108,12 +108,12 @@ Option B: Local Python Setup
 
     Access the app at http://127.0.0.1:7860.
 
-📡 API Documentation
+📡 API Documentation<br>
 
 This project exposes a REST API for integration with autonomous vehicle control systems.
-POST /predict
+POST /predict<br>
 
-Uploads an image and returns the segmentation mask and confidence score.
+Uploads an image and returns the segmentation mask and confidence score.<br>
 
     URL: /predict
 
@@ -135,34 +135,32 @@ Uploads an image and returns the segmentation mask and confidence score.
       "score": "0.7452"
     }
 
-🧪 Tested with Requestly
+🧪 Tested with Requestly<br>
 
-We use Requestly to validate our API endpoints across environments.
+We use Requestly to validate our API endpoints across environments.<br>
 
     Environment Variables: Used to toggle between Local Dev and Production without code changes.
 
     Automated Testing: Custom Post-Response scripts validate that the ensemble returns a valid mask_url and status: 200.
 
-📂 Project Structure
-Plaintext
+📂 Project Structure<br>
+SEMANTIC-SEGMENTATION/<br>
+├── Models/<br>
+│   ├── Ensemble/<br>
+│   │   ├── single_inference.py  # Core Inference Engine<br>
+│   │   ├── model_utils.py       # Voting & TTA Logic<br>
+│   │   └── Result/              # Metrics & Charts<br>
+│   ├── dino/                    # DINOv2 Model & Weights<br>
+│   ├── phase1/                  # DeepLabV3+ Weights<br>
+│   └── ... (other phases)<br>
+├── web_interface/<br>
+│   ├── app.py                   # Flask Server Entrypoint<br>
+│   ├── static/                  # CSS, JS, Uploads<br>
+│   └── templates/               # HTML (Inference & Analysis Pages)<br>
+├── Dockerfile                   # Production Docker Configuration<br>
+└── requirements.txt             # Python Dependencies<br>
 
-SEMANTIC-SEGMENTATION/
-├── Models/
-│   ├── Ensemble/
-│   │   ├── single_inference.py  # Core Inference Engine
-│   │   ├── model_utils.py       # Voting & TTA Logic
-│   │   └── Result/              # Metrics & Charts
-│   ├── dino/                    # DINOv2 Model & Weights
-│   ├── phase1/                  # DeepLabV3+ Weights
-│   └── ... (other phases)
-├── web_interface/
-│   ├── app.py                   # Flask Server Entrypoint
-│   ├── static/                  # CSS, JS, Uploads
-│   └── templates/               # HTML (Inference & Analysis Pages)
-├── Dockerfile                   # Production Docker Configuration
-└── requirements.txt             # Python Dependencies
-
-🤝 Acknowledgements
+🤝 Acknowledgements<br>
 
     Requestly: For providing the API client used to debug and test our inference endpoints.
 
