@@ -1,6 +1,6 @@
 # Semantic Scene Segmentation
 
-A multi-phase semantic segmentation repository where phase1–phase6 are independent training/evaluation workspaces (e.g., SegFormer, UNet++, FPN) and the Ensemble directory is the “command center” that combines their best `.pth` weights into a more robust, generalized prediction for your hackathon or competition.
+A multi-phase semantic segmentation repository where phase1–phase6 are independent training/evaluation workspaces (e.g., SegFormer, UNet++, FPN) and the Ensemble directory is the “command center” that combines their best `.pth` weights into a more robust, generalized prediction.
 
 ## Project overview
 
