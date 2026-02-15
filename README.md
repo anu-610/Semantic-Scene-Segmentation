@@ -14,7 +14,9 @@ A high-precision semantic segmentation pipeline designed for autonomous off-road
 ## [🎥 Demo Video](https://youtu.be/4WYr3IZz1d8) <br>
 * Watch the full walkthrough of the Inference Dashboard and our Requestly API workflow.
 
-### [Live Deployment](https://huggingface.co/spaces/devil610/KrackHack)
+### [🚀Live Deployment](https://huggingface.co/spaces/devil610/KrackHack) <br>
+
+### [Project Presentation PDF](https://drive.google.com/file/d/1vCXa95zHYjKjU3ShwlPRmxF9DP_n3nm4/view?usp=drive_link) <br>
     
 
 ## 🧠 Project Architecture<br>
