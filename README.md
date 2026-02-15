@@ -13,9 +13,12 @@ app_port: 7860
 A high-precision semantic segmentation pipeline designed for autonomous off-road navigation. This project uses an ensemble of 7 deep learning models (including SegFormer, DINOv2, and U-Net++) to accurately classify complex terrain features like logs, puddles, dry grass, and obstacles.
 🎥 Demo Video
 
-    [INSERT YOUR YOUTUBE VIDEO LINK HERE]
+    https://youtu.be/4WYr3IZz1d8
 
     Watch the full walkthrough of the Inference Dashboard and our Requestly API workflow.
+
+Live Deployment
+    https://huggingface.co/spaces/devil610/KrackHack
 
 🧠 Project Architecture
 
