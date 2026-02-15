@@ -50,7 +50,7 @@ Key Features<br>
     Dockerized Deployment: Fully containerized for deployment on Hugging Face Spaces or any cloud provider.
 
 ## 🛠️ Installation & Setup<br>
-** Prerequisites **<br>
+Prerequisites <br>
 
     Git & Git LFS (Large File Storage is critical for downloading model weights).
 
@@ -58,7 +58,7 @@ Key Features<br>
 
     Python 3.9+ (If running locally).
 
-** Option A **: Running with Docker (Recommended)<br>
+Option A: Running with Docker (Recommended)<br>
 
 This is the fastest way to get started without worrying about dependencies.<br>
 
@@ -81,7 +81,7 @@ This is the fastest way to get started without worrying about dependencies.<br>
     Access the App:
     Open your browser and go to http://localhost:7860
 
-** Option B **: Local Python Setup<br>
+Option B: Local Python Setup<br>
 
     Install Git LFS:
     Bash
