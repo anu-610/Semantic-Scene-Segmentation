@@ -10,8 +10,8 @@ app_port: 7860
 
 🚜 Semantic Segmentation Ensemble for Off-Road Navigation
 
-A high-precision semantic segmentation pipeline designed for autonomous off-road navigation. This project uses an ensemble of 7 deep learning models (including SegFormer, DINOv2, and U-Net++) to accurately classify complex terrain features like logs, puddles, dry grass, and obstacles.
-🎥 Demo Video
+A high-precision semantic segmentation pipeline designed for autonomous off-road navigation. This project uses an ensemble of 7 deep learning models (including SegFormer, DINOv2, and U-Net++) to accurately classify complex terrain features like logs, puddles, dry grass, and obstacles.<br>
+🎥 Demo Video<br>
 
     https://youtu.be/4WYr3IZz1d8
 
