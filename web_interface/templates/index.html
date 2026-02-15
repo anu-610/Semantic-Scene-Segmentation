@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Semantic Segmentation{% endblock %}
+
+{% block content %}
+<div style="text-align: center; padding: 4rem 0;">
+    <h1 style="font-size: 3.5rem; margin-bottom: 1rem;">
+        Advanced Scene <span style="color: var(--accent);">Segmentation</span>
+    </h1>
+    <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto 2rem auto;">
+        Leveraging a powerful <strong>Ensemble of 6 Deep Learning Models</strong> to achieve state-of-the-art pixel accuracy.
+    </p>
+    
+    <div style="display: flex; gap: 1rem; justify-content: center;">
+        <a href="/inference" class="btn-primary" style="text-decoration: none; font-size: 1.1rem; padding: 0.8rem 2rem;">
+            Try the Model <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="/analysis" style="color: var(--text-main); padding: 0.8rem 2rem; border: 1px solid var(--border); border-radius: 6px; text-decoration: none;">
+            View Metrics
+        </a>
+    </div>
+</div>
+
+<div class="card">
+    <h2><i class="fa-solid fa-microchip"></i> Architecture Overview</h2>
+    <p>
+        Our pipeline processes input images through <strong>SegFormer, UNet++, and FPN</strong> architectures. 
+        The results are aggregated in our <span style="color: var(--accent); font-weight: bold;">Ensemble Module</span> 
+        to produce the final segmentation mask.
+    </p>
+    
+    <div style="background: rgba(15, 23, 42, 0.5); border-radius: 12px; padding: 2rem; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; margin-top: 1.5rem;">
+        <img src="{{ url_for('static', filename='images/architecture.png') }}" 
+             alt="Ensemble Architecture Pipeline" 
+             style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
+    </div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+    <div class="card">
+        <h3>🚀 Fast Inference</h3>
+        <p>Optimized pipeline ensuring low latency processing for real-time applications.</p>
+    </div>
+    <div class="card">
+        <h3>📊 Detailed Analytics</h3>
+        <p>Comprehensive breakdown of IoU scores, confusion matrices, and loss graphs.</p>
+    </div>
+    <div class="card">
+        <h3>✨ Multi-Model Ensemble</h3>
+        <p>Combining the strengths of multiple architectures for superior generalization.</p>
+    </div>
+</div>
+{% endblock %}

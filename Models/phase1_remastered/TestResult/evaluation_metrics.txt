@@ -1,0 +1,20 @@
+PHASE 1 REMASTERED (ResNet101) OFFICIAL MEAN IoU: 0.2831
+
+Per-Class Breakdown:
+Background     : 0.0000
+Trees          : 0.1685
+Lush Bush      : 0.0005
+Dry Grass      : 0.3980
+Dry Bush       : 0.2880
+Clutter        : 0.0000
+Logs           : 0.0000
+Rocks          : 0.0430
+Landscape      : 0.4175
+Sky            : 0.9809
+
+Worst 5 Images:
+0000226.png: 0.1900
+0000225.png: 0.1916
+0000140.png: 0.1928
+0000312.png: 0.1961
+0000223.png: 0.2005

@@ -36,7 +36,7 @@ except NameError:
 # Shared Test Data Paths
 TEST_IMG_DIR = "/kaggle/input/datasets/devil610/testdata-krackhack/Offroad_Segmentation_testImages/Color_Images"
 TEST_MASK_DIR = "/kaggle/input/datasets/devil610/testdata-krackhack/Offroad_Segmentation_testImages/Segmentation"
-OUTPUT_DIR = os.path.join(current_script_path, "Submission_Results_Phase6")
+OUTPUT_DIR = os.path.join(current_script_path, "TestResult")
 
 # --- MODEL PATH (FAILSAFE) ---
 MODEL_PATH = model_utils.get_model_path(

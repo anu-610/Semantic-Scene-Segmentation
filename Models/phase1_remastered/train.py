@@ -317,6 +317,6 @@ if __name__ == "__main__":
         SCRIPT_DIR = os.getcwd()
 
     # Force the Output Folder to be inside the Script's directory
-    REPORT_DIR = os.path.join(SCRIPT_DIR, "Final_Phase1_Remastered_Report")
+    REPORT_DIR = os.path.join(SCRIPT_DIR, "Result")
 
     generate_post_training_report(model, DEVICE, os.path.join(VAL_ROOT_DIR, "Color_Images"), os.path.join(VAL_ROOT_DIR, "Segmentation"), REPORT_DIR)

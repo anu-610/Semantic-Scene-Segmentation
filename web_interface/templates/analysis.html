@@ -1,0 +1,242 @@
+{% extends "base.html" %}
+
+{% block title %}Model Analysis{% endblock %}
+
+{% block content %}
+<div style="max-width: 1200px; margin: 0 auto;">
+
+    <div style="text-align: center; margin-bottom: 2rem;">
+        <h1><i class="fa-solid fa-chart-line"></i> Model Performance Analysis</h1>
+        <p>Comparative metrics, confusion matrices, and per-class performance across all phases.</p>
+    </div>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="openTab(event, 'ensemble')">Ensemble (Best)</button>
+        <button class="tab-btn" onclick="openTab(event, 'phase1')">Phase 1</button>
+        <button class="tab-btn" onclick="openTab(event, 'phase3')">Phase 3</button>
+        <button class="tab-btn" onclick="openTab(event, 'phase4')">Phase 4</button>
+        <button class="tab-btn" onclick="openTab(event, 'phase5')">Phase 5</button>
+        <button class="tab-btn" onclick="openTab(event, 'phase6')">Phase 6</button>
+    </div>
+
+    <div id="tab-content">
+        <div class="loading-placeholder">
+            <div class="spinner"></div>
+            <p>Loading Metrics...</p>
+        </div>
+    </div>
+
+</div>
+
+<style>
+    .tabs {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .tab-btn {
+        background-color: var(--bg-card);
+        color: var(--text-muted);
+        border: 1px solid var(--border);
+        padding: 0.8rem 1.5rem;
+        cursor: pointer;
+        font-size: 1rem;
+        border-radius: 8px;
+        transition: all 0.3s;
+    }
+
+    .tab-btn:hover {
+        background-color: var(--border);
+        color: white;
+    }
+
+    .tab-btn.active {
+        background-color: var(--accent);
+        color: var(--bg-dark);
+        font-weight: bold;
+        border-color: var(--accent);
+    }
+
+    /* Analysis Grid Layout */
+    .analysis-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+    }
+
+    .chart-card {
+        background-color: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    .chart-card h3 {
+        color: var(--accent);
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 0.5rem;
+    }
+
+    .chart-card img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        transition: transform 0.3s;
+    }
+    
+    .chart-card img:hover {
+        transform: scale(1.02);
+    }
+
+    .metric-badge {
+        display: inline-block;
+        background: rgba(56, 189, 248, 0.1);
+        color: var(--accent);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        margin: 0.5rem;
+        font-weight: bold;
+    }
+</style>
+
+<script>
+    // --- UPDATED DATA DEFINITIONS ---
+    // Switched "Training Loss" -> "Per Class Metrics" for all phases
+    const phaseData = {
+        'ensemble': {
+            title: "Ensemble Model (Voting Classifier)",
+            desc: "The final boosted ensemble combining DINOv2, SegFormer, and UNet++ predictions.",
+            images: [
+                { title: "Confusion Matrix", src: "/get_chart/ensemble/confusion_matrix.png" },
+                { title: "Per Class Metrics", src: "/get_chart/ensemble/per_class_metrics.png" }
+            ]
+        },
+        'phase1': {
+            title: "Phase 1: DeepLabV3+ (ResNet101)",
+            desc: "Baseline model using DeepLabV3+ architecture with heavy augmentation.",
+            images: [
+                { title: "Confusion Matrix", src: "/get_chart/phase1/confusion_matrix.png" },
+                { title: "Per Class Metrics", src: "/get_chart/phase1/per_class_metrics.png" }
+            ]
+        },
+        'phase3': {
+            title: "Phase 3: EfficientNet-B4",
+            desc: "Focused on efficiency using Timm encoders.",
+            images: [
+                { title: "Confusion Matrix", src: "/get_chart/phase3/confusion_matrix.png" },
+                { title: "Per Class Metrics", src: "/get_chart/phase3/per_class_metrics.png" }
+            ]
+        },
+        'phase4': {
+            title: "Phase 4: SegFormer (Transformer)",
+            desc: "Transformer-based approach for capturing global context.",
+            images: [
+                { title: "Confusion Matrix", src: "/get_chart/phase4/confusion_matrix.png" },
+                { title: "Per Class Metrics", src: "/get_chart/phase4/per_class_metrics.png" }
+            ]
+        },
+        'phase5': {
+            title: "Phase 5: UNet++",
+            desc: "Nested UNet architecture for fine-grained segmentation.",
+            images: [
+                { title: "Confusion Matrix", src: "/get_chart/phase5/confusion_matrix.png" },
+                { title: "Per Class Metrics", src: "/get_chart/phase5/per_class_metrics.png" }
+            ]
+        },
+        'phase6': {
+            title: "Phase 6: FPN (Feature Pyramid)",
+            desc: "Feature Pyramid Network for multi-scale object detection.",
+            images: [
+                { title: "Confusion Matrix", src: "/get_chart/phase6/confusion_matrix.png" },
+                { title: "Per Class Metrics", src: "/get_chart/phase6/per_class_metrics.png" }
+            ]
+        }
+    };
+
+    // Initialize with Ensemble on page load
+    // We create a fake event object just to start the function
+    window.onload = function() {
+        renderTab('ensemble');
+    };
+
+    function openTab(evt, phaseName) {
+        // 1. Update Buttons Styling
+        const tablinks = document.getElementsByClassName("tab-btn");
+        for (let i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        evt.currentTarget.className += " active";
+
+        // 2. Render Content
+        renderTab(phaseName);
+    }
+
+    async function renderTab(phase) {
+        const data = phaseData[phase];
+        const container = document.getElementById('tab-content');
+        
+        // Safety check if phase data is missing
+        if (!data) {
+            container.innerHTML = `<p style="text-align:center; color:red;">Data for ${phase} not found.</p>`;
+            return;
+        }
+
+        // 1. Initial Render with "Loading..." badge for scores
+        // Note: Images are set immediately. 
+        // We add a timestamp (?t=...) to the image src to force the browser to reload the image and not use cache.
+        const timestamp = new Date().getTime();
+
+        let html = `
+            <div class="card" style="text-align: center; margin-bottom: 2rem;">
+                <h2>${data.title}</h2>
+                <p>${data.desc}</p>
+                <div id="metrics-container-${phase}">
+                    <span class="metric-badge" style="background: #334155; color: #94a3b8;">Loading Score...</span>
+                </div>
+            </div>
+            
+            <div class="analysis-grid">
+                ${data.images.map(img => `
+                    <div class="chart-card">
+                        <h3>${img.title}</h3>
+                        <img src="${img.src}?t=${timestamp}" 
+                             alt="${img.title}" 
+                             class="img-fluid"
+                             onerror="this.onerror=null; this.src='https://via.placeholder.com/400x300?text=Image+Not+Found';">
+                    </div>
+                `).join('')}
+            </div>
+        `;
+        container.innerHTML = html;
+
+        // 2. Fetch Real Metrics from Python Backend
+        try {
+            const response = await fetch(`/get_metrics/${phase}`);
+            const result = await response.json();
+            
+            const badgeContainer = document.getElementById(`metrics-container-${phase}`);
+            
+            if (result.metrics && result.metrics.length > 0) {
+                // Replace "Loading..." with real badges
+                badgeContainer.innerHTML = result.metrics.map(m => 
+                    `<span class="metric-badge">${m}</span>`
+                ).join('');
+            } else {
+                badgeContainer.innerHTML = `<span class="metric-badge" style="background: #991b1b; color: white;">No Score Found</span>`;
+            }
+        } catch (error) {
+            console.error("Error fetching metrics:", error);
+            const badgeContainer = document.getElementById(`metrics-container-${phase}`);
+            if(badgeContainer) {
+                badgeContainer.innerHTML = `<span class="metric-badge" style="background: #991b1b; color: white;">Server Error</span>`;
+            }
+        }
+    }
+</script>
+{% endblock %}

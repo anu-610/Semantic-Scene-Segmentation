@@ -1,0 +1,20 @@
+PHASE 3 OFFICIAL MEAN IoU: 0.2858
+
+Per-Class Breakdown:
+Background     : 0.0000
+Trees          : 0.1826
+Lush Bush      : 0.0004
+Dry Grass      : 0.4550
+Dry Bush       : 0.3656
+Clutter        : 0.0000
+Logs           : 0.0000
+Rocks          : 0.0535
+Landscape      : 0.6034
+Sky            : 0.9100
+
+Worst 5 Failure Cases:
+0000340.png: 0.2241
+0000309.png: 0.2244
+0000916.png: 0.2244
+0000339.png: 0.2248
+0001014.png: 0.2249

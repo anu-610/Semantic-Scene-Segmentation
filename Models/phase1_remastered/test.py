@@ -36,7 +36,7 @@ except NameError:
 
 TEST_IMG_DIR = "/kaggle/input/datasets/anurajktk/krackdata/Offroad_Segmentation_testImages/Offroad_Segmentation_testImages/Color_Images"
 TEST_MASK_DIR = "/kaggle/input/datasets/anurajktk/krackdata/Offroad_Segmentation_testImages/Offroad_Segmentation_testImages/Segmentation"
-OUTPUT_DIR = os.path.join(current_script_path, "Submission_Results_Phase1_TTA")
+OUTPUT_DIR = os.path.join(current_script_path, "TestResult")
 
 # --- MODEL PATH (FAILSAFE) ---
 # Resolves to shared Models/ folder or downloads if missing

@@ -1,0 +1,20 @@
+PHASE 4 (SegFormer) OFFICIAL MEAN IoU: 0.2903
+
+Per-Class Breakdown:
+Background     : 0.0000
+Trees          : 0.1923
+Lush Bush      : 0.0013
+Dry Grass      : 0.3913
+Dry Bush       : 0.1710
+Clutter        : 0.0000
+Logs           : 0.0000
+Rocks          : 0.0368
+Landscape      : 0.5453
+Sky            : 0.9783
+
+Worst 5 Images (Failure Analysis):
+0000355.png: 0.1988
+0000435.png: 0.2054
+0000311.png: 0.2096
+0000356.png: 0.2119
+0000334.png: 0.2140

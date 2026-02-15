@@ -1,0 +1,20 @@
+PHASE 6 (FPN) OFFICIAL MEAN IoU: 0.2763
+
+Per-Class Breakdown:
+Background     : 0.0000
+Trees          : 0.1877
+Lush Bush      : 0.0007
+Dry Grass      : 0.4291
+Dry Bush       : 0.1513
+Clutter        : 0.0000
+Logs           : 0.0000
+Rocks          : 0.0399
+Landscape      : 0.5965
+Sky            : 0.9817
+
+Worst 5 Images:
+0001011.png: 0.1872
+0000124.png: 0.1892
+0000527.png: 0.2005
+0001010.png: 0.2029
+0000966.png: 0.2054

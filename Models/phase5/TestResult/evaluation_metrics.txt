@@ -1,0 +1,20 @@
+PHASE 5 (U-Net++) OFFICIAL MEAN IoU: 0.2865
+
+Per-Class Breakdown:
+Background     : 0.0000
+Trees          : 0.2597
+Lush Bush      : 0.0013
+Dry Grass      : 0.3903
+Dry Bush       : 0.2566
+Clutter        : 0.0000
+Logs           : 0.0000
+Rocks          : 0.0420
+Landscape      : 0.5647
+Sky            : 0.9841
+
+Worst 5 Images:
+0001013.png: 0.1908
+0000913.png: 0.1970
+0000252.png: 0.2012
+0000319.png: 0.2026
+0000253.png: 0.2033

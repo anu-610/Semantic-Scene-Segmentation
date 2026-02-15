@@ -313,6 +313,6 @@ if __name__ == "__main__":
     except NameError:
         SCRIPT_DIR = os.getcwd() 
         
-    REPORT_DIR = os.path.join(SCRIPT_DIR, "Final_Phase5_UnetPlusPlus_Report")
+    REPORT_DIR = os.path.join(SCRIPT_DIR, "Result")
     
     generate_post_training_report(model, DEVICE, os.path.join(VAL_ROOT_DIR, "Color_Images"), os.path.join(VAL_ROOT_DIR, "Segmentation"), REPORT_DIR)

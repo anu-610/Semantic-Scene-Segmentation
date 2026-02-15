@@ -36,7 +36,7 @@ except NameError:
 
 TEST_IMG_DIR = "/home/dev/Documents/Hackathon/Krack Hack/ensemble/Offroad_Segmentation_testImages/Color_Images"
 TEST_MASK_DIR = "/home/dev/Documents/Hackathon/Krack Hack/ensemble/Offroad_Segmentation_testImages/Segmentation"
-OUTPUT_DIR = os.path.join(current_script_path, "Submission_Results_Phase1_TTA")
+OUTPUT_DIR = os.path.join(current_script_path, "TestResult")
 DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 # --- MODEL PATH (FAILSAFE) ---
