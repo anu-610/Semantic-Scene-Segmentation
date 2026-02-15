@@ -90,7 +90,7 @@ This is the fastest way to get started without worrying about dependencies.<br>
     ```
 3. **Create a Virtual Environment:**
    ```Bash
-    python -m venv venv
+    python3 -m venv venv
     source venv/bin/activate  # On Windows: venv\Scripts\activate
     ```
 4. **Install Dependencies:**
