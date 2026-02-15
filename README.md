@@ -8,19 +8,19 @@ pinned: false
 app_port: 7860
 ---
 
-🚜 Semantic Segmentation Ensemble for Off-Road Navigation
+# 🚜 Semantic Segmentation Ensemble for Off-Road Navigation
 
 A high-precision semantic segmentation pipeline designed for autonomous off-road navigation. This project uses an ensemble of 7 deep learning models (including SegFormer, DINOv2, and U-Net++) to accurately classify complex terrain features like logs, puddles, dry grass, and obstacles.<br>
-🎥 Demo Video<br>
+## 🎥 Demo Video<br>
 
 https://youtu.be/4WYr3IZz1d8
 
     Watch the full walkthrough of the Inference Dashboard and our Requestly API workflow.
 
-Live Deployment
+### Live Deployment
     https://huggingface.co/spaces/devil610/KrackHack
 
-🧠 Project Architecture<br>
+## 🧠 Project Architecture<br>
 
 Off-road environments are chaotic. A single model often fails to distinguish between safe terrain (e.g., dry grass) and obstacles (e.g., logs). Our solution uses a Multi-Phase Ensemble Strategy:<br>
 The Ensemble Engine<br>
@@ -49,8 +49,8 @@ Key Features<br>
 
     Dockerized Deployment: Fully containerized for deployment on Hugging Face Spaces or any cloud provider.
 
-🛠️ Installation & Setup<br>
-Prerequisites<br>
+## 🛠️ Installation & Setup<br>
+** Prerequisites **<br>
 
     Git & Git LFS (Large File Storage is critical for downloading model weights).
 
@@ -58,7 +58,7 @@ Prerequisites<br>
 
     Python 3.9+ (If running locally).
 
-Option A: Running with Docker (Recommended)<br>
+** Option A **: Running with Docker (Recommended)<br>
 
 This is the fastest way to get started without worrying about dependencies.<br>
 
@@ -81,7 +81,7 @@ This is the fastest way to get started without worrying about dependencies.<br>
     Access the App:
     Open your browser and go to http://localhost:7860
 
-Option B: Local Python Setup<br>
+** Option B **: Local Python Setup<br>
 
     Install Git LFS:
     Bash
@@ -108,7 +108,7 @@ Option B: Local Python Setup<br>
 
     Access the app at http://127.0.0.1:7860.
 
-📡 API Documentation<br>
+### 📡 API Documentation<br>
 
 This project exposes a REST API for integration with autonomous vehicle control systems.
 POST /predict<br>
@@ -135,7 +135,7 @@ Uploads an image and returns the segmentation mask and confidence score.<br>
       "score": "0.7452"
     }
 
-🧪 Tested with Requestly<br>
+### 🧪 Tested with Requestly<br>
 
 We use Requestly to validate our API endpoints across environments.<br>
 
@@ -143,7 +143,7 @@ We use Requestly to validate our API endpoints across environments.<br>
 
     Automated Testing: Custom Post-Response scripts validate that the ensemble returns a valid mask_url and status: 200.
 
-📂 Project Structure<br>
+### 📂 Project Structure<br>
 SEMANTIC-SEGMENTATION/<br>
 ├── Models/<br>
 │   ├── Ensemble/<br>
@@ -160,7 +160,7 @@ SEMANTIC-SEGMENTATION/<br>
 ├── Dockerfile                   # Production Docker Configuration<br>
 └── requirements.txt             # Python Dependencies<br>
 
-🤝 Acknowledgements<br>
+### 🤝 Acknowledgements<br>
 
     Requestly: For providing the API client used to debug and test our inference endpoints.
 
