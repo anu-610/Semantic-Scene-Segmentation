@@ -13,6 +13,7 @@
     <div class="tabs">
         <button class="tab-btn active" onclick="openTab(event, 'ensemble')">Ensemble (Best)</button>
         <button class="tab-btn" onclick="openTab(event, 'phase1')">Phase 1</button>
+        <button class="tab-btn" onclick="openTab(event, 'dino')">Phase 2 (DINO)</button>
         <button class="tab-btn" onclick="openTab(event, 'phase3')">Phase 3</button>
         <button class="tab-btn" onclick="openTab(event, 'phase4')">Phase 4</button>
         <button class="tab-btn" onclick="openTab(event, 'phase5')">Phase 5</button>
@@ -117,6 +118,16 @@
                 { title: "Per Class Metrics", src: "/get_chart/ensemble/per_class_metrics.png" }
             ]
         },
+        'dino': {
+            title: "Phase 2: DINOv2 (ViT-B/14)",
+            desc: "Foundation model using Vision Transformers (ViT) with self-supervised learning for robust feature extraction.",
+            images: [
+                // The route is /get_chart/<phase>/<filename>
+                // We request phase 'dino' so the backend knows to look in 'Models/dino/Result'
+                { title: "Confusion Matrix", src: "/get_chart/dino/confusion_matrix.png" },
+                { title: "Per Class Metrics", src: "/get_chart/dino/per_class_metrics.png" }
+            ]
+        },
         'phase1': {
             title: "Phase 1: DeepLabV3+ (ResNet101)",
             desc: "Baseline model using DeepLabV3+ architecture with heavy augmentation.",
@@ -125,6 +136,7 @@
                 { title: "Per Class Metrics", src: "/get_chart/phase1/per_class_metrics.png" }
             ]
         },
+
         'phase3': {
             title: "Phase 3: EfficientNet-B4",
             desc: "Focused on efficiency using Timm encoders.",

@@ -1,9 +1,12 @@
-# Use a Python image with PyTorch pre-installed (saves time)
+# Use a Python image with PyTorch pre-installed
 FROM datajoint/miniconda3:latest
+
+# CRITICAL FIX: Switch to root to allow apt-get installs
+USER root
 
 WORKDIR /app
 
-# Install system dependencies
+# Install system dependencies (OpenCV needs these)
 RUN apt-get update && apt-get install -y \
     libgl1-mesa-glx \
     libglib2.0-0 \

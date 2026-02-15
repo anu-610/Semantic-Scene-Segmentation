@@ -129,7 +129,9 @@ def get_chart(phase, filename):
     """
     # Map phases to their specific result folders
     # This matches the folder structure used in get_metrics
+    print(phase)
     phase_map = {
+        'dino':'Models/dino/Result',
         'phase1': 'Models/phase1/Result',
         'phase1 Remastered': 'Models/phase1/Result', 
         'phase3': 'Models/phase3/Result',
@@ -163,6 +165,7 @@ def get_metrics(phase):
     """
     # Map phases to their specific result folders (matching your get_chart map)
     phase_map = {
+        'dino':'Models/dino/Result',
         'phase1': 'Models/phase1/Result',
         'phase3': 'Models/phase3/Result',
         'phase4': 'Models/phase4/Result',
@@ -225,4 +228,4 @@ if __name__ == '__main__':
     # 2. Production Config for Hugging Face
     # host='0.0.0.0' makes it accessible outside the container
     # port=7860 is the standard HF Spaces port
-    app.run(host='0.0.0.0', port=7860, debug=False)
+    app.run(host='0.0.0.0', port=7860)

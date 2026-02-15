@@ -1,2 +1,6 @@
 .venv/
 web_interface/venv/
+web_interface/static/uploads/
+web_interface/static/predictions/
+__pycache__/
+*.pyc
