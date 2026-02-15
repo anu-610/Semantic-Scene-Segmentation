@@ -1,0 +1,20 @@
+BOOSTED ENSEMBLE SCORE: 0.3136
+
+Per-Class Breakdown:
+Background     : 0.0000
+Trees          : 0.2267
+Lush Bush      : 0.0042
+Dry Grass      : 0.4533
+Dry Bush       : 0.2407
+Clutter        : 0.0000
+Logs           : 0.0000
+Rocks          : 0.0405
+Landscape      : 0.6488
+Sky            : 0.9792
+
+Worst 5 Images:
+0000225.png: 0.2072
+0000915.png: 0.2105
+0000334.png: 0.2169
+0000309.png: 0.2227
+0000336.png: 0.2266

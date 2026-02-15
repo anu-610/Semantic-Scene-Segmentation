@@ -1,0 +1,13 @@
+OFFICIAL MEAN IoU: 0.3053
+
+Per-Class Breakdown:
+Background     : 0.0000
+Trees          : 0.1957
+Lush Bush      : 0.0024
+Dry Grass      : 0.4360
+Dry Bush       : 0.1983
+Clutter        : 0.0000
+Logs           : 0.0000
+Rocks          : 0.0434
+Landscape      : 0.6117
+Sky            : 0.9700
