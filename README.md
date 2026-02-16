@@ -78,27 +78,31 @@ This is the fastest way to get started without worrying about dependencies.<br>
     Open your browser and go to [App](http://localhost:7860)
 
 ### Option B: Local Python Setup<br>
-
-1. **Install Git LFS:**
+1.  **Clone the Repository:**
+    ```bash
+    git clone https://github.com/anu-610/Semantic-Scene-Segmentation.git
+    cd Semantic-Scene-Segmentation
+    ```
+2. **Install Git LFS:**
     ```Bash
     git lfs install
     git lfs pull  # Downloads the large .pth model files
     ```
-2. **Create a Virtual Environment:**
+3. **Create a Virtual Environment:**
    ```Bash
     python -m venv venv
     source venv/bin/activate  # On Windows: venv\Scripts\activate
     ```
-3. **Install Dependencies:**
+4. **Install Dependencies:**
     *Note: We use opencv-python-headless for server environments.
    ```Bash
     pip install -r web_interface/requirements.txt
     ```
-4. **Run the Flask App:**
+5. **Run the Flask App:**
     ```Bash
     python web_interface/app.py
     ```
-5. **Access the app at [here](http://127.0.0.1:7860)**
+6. **Access the app at [here](http://127.0.0.1:7860)**
 
 ## 📡 API Documentation<br>
 
